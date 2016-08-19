@@ -1,239 +1,163 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta charset="utf-8">
-    <title>我的博客</title>
-    <meta name="关键字" content="">
-    <link href="/static/css/buju.css" rel="stylesheet">
-    <link href="/static/css/index.css" rel="stylesheet">
+    <meta charset="utf-8"/>
+    <title>
+        『瑞班克』-专注于网站、博客、管理系统制作</title>
+    <meta name="description" content="『瑞班克』，分享前后端经验的专业博客！"/>
+    <meta name="keywords" content="设计, 开发, 后端资源, CSS, JavaScript, Ajax, Html5，php"/>
+    <meta name="generator" content="瑞班克 1.1.5"/>
+
+    <!-- ~~~~~~ icon图标 ~~~~~~ -->
+    <link rel="shortcut icon" href="/static/img/favicon.ico"/>
+
+    <!-- ~~~~~~ CSS 合并文件 ~~~~~~ -->
+    <link rel="stylesheet" href="/static/css/all_css.css"/>
+
+    <!-- JavaScript files start -->
     <script type="text/javascript" src="/static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/js/sliders.js"></script>
+    <!-- JavaScript files end -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 </head>
 <body>
-<header>
-    <div class="logo f_l">
-        <a href="#">
-            <img src="/static/images/logo.png">
-        </a>
-    </div>
-    <div id="topnav" class="f_r">
-        <ul>
-            <a href="#" target="_blank" id="topnav_current">首页</a>
-            <a href="#" target="_blank">关于我</a>
-            <a href="#" target="_blank">文章</a>
-            <a href="#" target="_blank">心情</a>
-            <a href="#" target="_blank">相册</a>
-            <a href="#" target="_blank">留言</a>
-        </ul>
-    </div>
-</header>
-<article>
-    <div class="l_box f_l">
-        <div class="banner">
-            <div id="slide-holder">
-                <div id="slide-runner">
-                    <a href="/" target="_blank">
-                        <img id="slide-img-1" src="/static/images/a1.jpg" alt style>
-                    </a>
-                    <a href="/" target="_blank">
-                        <img id="slide-img-2" src="/static/images/a2.jpg" alt style>
-                    </a>
-                    <a href="/" target="_blank">
-                        <img id="slide-img-3" src="/static/images/a3.jpg" alt style>
-                    </a>
-                    <a href="/" target="_blank">
-                        <img id="slide-img-4" src="/static/images/a4.jpg" alt style>
-                    </a>
-                    <div id="slide-controls" style="display:block;">
-                        <p id="slide-client" class="text">
-                            <strong></strong>
-                            <span></span>
-                        </p>
-                        <p id="slide-desc" class="text"></p>
-                        <p id="slide-nav"></p>
+<div class="wrapper">
+    <!-- 顶部header -->
+    <div id="header-wrapper">
+        <div id="header-bottom">
+            <div class="header-bottom-wrapper">
+                <div class="four columns omega">
+                    <!-- logo / tagline-->
+                    <div class="two-thirds column">
+                        <div class="logo-slogan">
+                            <div class="logo"><a href="index.html"><img
+                                    src="/static/files/55/96/a7/5596a74d31975-1435936589.png" alt=""/></a></div>
+                        </div>
+                        <div class="tagline">
+                            下一秒，我不知道。
+                        </div>
                     </div>
                 </div>
+                <div class="ninehalf columns alpha" id="main-menu-wrapper">
+                    <ul id="main-menu">
+                        <li><a class="active" href="/">首页</a></li>
+                        <li>
+                            <a href="about.html">瑞班克</a>
+                            <ul>
+                                <li>完美</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/xwblog/articles">文章</a>
+                        </li>
+                        <li>
+                            <a href="moodlist.html">说说</a>
+                            <ul>
+                                <li>吐槽</li>
+                            </ul>
+
+                        </li>
+                        <li><a href="message.html">留言</a>
+                            <ul>
+                                <li>沉默</li>
+                            </ul>
+                        </li>
+                        <li class="newsite"><a class="newsite" href="http://lianmeng.isrbk.com/" target="_blank">联盟</a>
+                            <ul>
+                                <li>商业</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <script>
-            if (!window.slider) {
-                var slider = {};
-            }
-            slider.data = [
-                {
-                    "id": "slide-img-1", //与slide-runner中的img标签id对应
-                    "client": "醉牛逼",
-                    "desc": "醉牛逼是武魂醉牛逼的存在"     //这里描述图片内容
-                },
-                {
-                    "id": "slide-img-2",
-                    "client": "醉牛逼",
-                    "desc": "醉牛逼是武魂醉牛逼的存在"
-                },
-                {
-                    "id": "slide-img-3",
-                    "client": "醉牛逼",
-                    "desc": "醉牛逼是武魂醉牛逼的存在"
-                },
-                {
-                    "id": "slide-img-4",
-                    "client": "醉牛逼",
-                    "desc": "醉牛逼是武魂醉牛逼的存在"
-                }
-            ];
-        </script>
-        <div class="topnews">
-            <h2>
-	   <span>
-	    <a href="/" target="_blank">武魂大罗</a>
-		 <a href="/" target="_blank">装逼大神</a>
-		 <a href="/" target="_blank">�琶�推荐</a>
-	   </span>
-                文章推荐
-            </h2>
+    </div>
+    <!-- end 顶部header -->
+    <!-- 设置一个好的消息提示样式 -->
 
-            {% block content %}
+    <!-- 设置精品域名框 -->
+
+    <script type="text/javascript" src="/static/js/jquery.min.js"></script>
+    {#    <link rel="stylesheet" type="text/css" href="/static/css/domain.css"/>#}
+    {#    <div id="domainbody">#}
+    {#        <div class="cs_close"><a href="javascript:;" onClick="$('#domainbody').fadeOut()"><span>关闭</span></a></div>#}
+    {#        <div class="cs_online"></div>#}
+    {#        <div class="cs_online_ct">#}
+    {#            <div class="cs_online_domain"><h4>yybbl.com(50000)</h4></div>#}
+    {#            <div class="cs_online_domain"><h4>147P.com（2800）</h4></div>#}
+    {#            <div class="cs_online_domain"><h4>biesb.com（1000）</h4></div>#}
+    {#        </div>#}
+    {#        <div class="cs_spr"></div>#}
+    {#        <div class="cs_baidu"><a href="view.html" target="_blank"><span>了解详情</span></a></div>#}
+    {#    </div>#}
+    <!--内容 content-wrappe -->
+
+    <div id="content-wrapper">
+        {% block wrapper %}
+        {% endblock %}
+        <!-- /title -->
+
+        <div class="container">
+            <div class="separator35"></div>
+
+            <!-- Left Part -->
+            {% block leftContent %}
             {% endblock %}
+            <!-- Left Part -->
 
+
+            <!-- Right Part -->
+            {% block rightContent %}
+            {% endblock %}
+            <!-- /Right Part -->
+
+
+            <div class="clear"></div>
         </div>
     </div>
-    <div class="r_box f_r">
-        <div class="tit01">
-            <h3>关注我</h3>
-            <div class="gzwm">
-                <ul>
-                    <li><a class="xlwb" href="#" target="_blank">新浪微博</a></li>
-                    <li><a class="txwb" href="#" target="_blank">腾讯微博</a></li>
-                    <li><a class="rss" href="#" target="_blank">RSS</a></li>
-                    <li><a class="wx" href="#" target="_blank">邮箱</a></li>
-                </ul>
+    <!-- end content -->        <!-- FOOTER -->
+    <div id="footer-wrapper">
+        <!-- top part [tweeter] -->
+        <div id="footer-top">
+            <div class="footer-tweet-left"></div>
+            <div class="footer-tweet-right"></div>
+
+            <div class="container">
+
             </div>
         </div>
-        <div class="ad300x100">
-            <img src="/static/images/wh.jpg">
-        </div>
-        <div class="tab" id="lp_right_select">
-            <script>
-                window.onload = function () {
-                    var oLi = document.getElementById("tb").getElementsByTagName("li");
-                    var oUl = document.getElementById("tb-main").getElementsByTagName("div");
-                    for (var i = 0; i < oLi.length; i++) {
-                        oLi[i].index = i;
-                        oLi[i].onmouseover = function () {
-                            for (var n = 0; n < oLi.length; n++)
-                                oLi[n].className = "";
-                            this.className = "cur";
-                            for (var n = 0; n < oUl.length; n++)
-                                oUl[n].style.display = "none";
-                            oUl[this.index].style.display = "block";
-                        }
-                    }
-                }
-            </script>
-            <div class="tab-top">
-                <ul class="hd" id="tb">
-                    <li class="cur"><a href="/">点击排行</a></li>
-                    <li><a href="/">最新文章</a></li>
-                    <li><a href="/">站长推荐</a></li>
-                </ul>
+
+        <!-- bottom part  -->
+        <div id="footer-bottom">
+            <div id="footer-bottom-arr"></div>
+            <div class="container">
+                <!-- copyrights -->
+                <div class="column copyrights">
+                    <p>&copy; Copyright &copy; 2013.Company name All rights reserved.</p>
+                </div>
+
+                <div class="cnzz column" style="display:none;">
+                    <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+                    document.write(unescape("%3Cspan id='cnzz_stat_icon_1254447027'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1254447027%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+                </div>
+                <!-- menu -->
+                <div class="column">
+                    <ul id="footer-menu">
+                        <li><a href="http://www.isrbk.com/Index/index">首页</a></li>
+                        <li><a href="http://www.isrbk.com/Index/about">瑞班克</a></li>
+                        <li><a href="http://www.isrbk.com/Index/articlelist">文章</a></li>
+                        <li><a href="http://www.isrbk.com/Index/moodlist">说说</a></li>
+                        <li><a href="http://www.isrbk.com/Index/message">留言</a></li>
+                        <li><!-- to top -->
+                            <a href="#top" class="backtop" title="Page Up"><!-- Upper --></a>
+                        </li>
+                    </ul>
+
+                </div>
+
             </div>
-            <div class="tab-main" id="tb-main">
-                <div class="bd bd-news" style="display:block;">
-                    <ul>
-                        <li><a href="/" target="_blank">住在手机里的朋友</a></li>
-                        <li><a href="/" target="_blank">教你怎样用欠费手机拨打电话</a></li>
-                        <li><a href="/" target="_blank">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
-                        <li><a href="/" target="_blank">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
-                        <li><a href="/" target="_blank">你面对的是生活而不是手机</a></li>
-                        <li><a href="/" target="_blank">豪雅手机正式发布! 在法国全手工打造的奢侈品</a></li>
-                    </ul>
-                </div>
-                <div class="bd bd-news">
-                    <ul>
-                        <li><a href="/" target="_blank">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
-                        <li><a href="/" target="_blank">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
-                        <li><a href="/" target="_blank">住在手机里的朋友</a></li>
-                        <li><a href="/" target="_blank">教你怎样用欠费手机拨打电话</a></li>
-                        <li><a href="/" target="_blank">你面对的是生活而不是手机</a></li>
-                        <li><a href="/" target="_blank">豪雅手机正式发布! 在法国全手工打造的奢侈品</a></li>
-                    </ul>
-                </div>
-                <div class="bd bd-news">
-                    <ul>
-                        <li><a href="/" target="_blank">手机的16个惊人小秘密，据说99.999%的人都不知</a></li>
-                        <li><a href="/" target="_blank">你面对的是生活而不是手机</a></li>
-                        <li><a href="/" target="_blank">住在手机里的朋友</a></li>
-                        <li><a href="/" target="_blank">豪雅手机正式发布! 在法国全手工打造的奢侈品</a></li>
-                        <li><a href="/" target="_blank">你面对的是生活而不是手机</a></li>
-                        <li><a href="/" target="_blank">原来以为，一个人的勇敢是，删掉他的手机号码...</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="cloud">
-            <h3>标签云</h3>
-            <ul>
-                <li><a href="/">个人博客</a></li>
-                <li><a href="/">web开发</a></li>
-                <li><a href="/">前端设计</a></li>
-                <li><a href="/">Html</a></li>
-                <li><a href="/">CSS3</a></li>
-                <li><a href="/">CSS3+HTML5</a></li>
-                <li><a href="/">百度</a></li>
-                <li><a href="/">JavaScript</a></li>
-                <li><a href="/">C/C++</a></li>
-                <li><a href="/">ASP.NET</a></li>
-                <li><a href="/">IOS开发</a></li>
-                <li><a href="/">Android开发</a></li>
-                <li><a href="/">PHP</a></li>
-                <li><a href="/">VS</a></li>
-            </ul>
-        </div>
-        <div class="tuwen">
-            <h3>图文推荐</h3>
-            <ul>
-                <li><a href="/"><img src="/static/images/01.jpg"><b>住在手机里的朋友</b></a>
-                    <p>
-                        <span class="tulanum"><a href="/">手机配件</a></span>
-                        <span class="tutime">2016-02-16</span>
-                    </p>
-                </li>
-                <li><a href="/"><img src="/static/images/02.jpg"><b>教你怎样用欠费手机拨打电话</b></a>
-                    <p>
-                        <span class="tulanum"><a href="/">手机配件</a></span>
-                        <span class="tutime">2016-02-16</span>
-                    </p></li>
-                <li><a href="/"><img src="/static/images/03.jpg"><b>手机的16个惊人小秘密，据说99.999%的人都不知</b></a>
-                    <p>
-                        <span class="tulanum"><a href="/">手机配件</a></span>
-                        <span class="tutime">2016-02-16</span>
-                    </p></li>
-                <li><a href="/"><img src="/static/images/06.jpg"><b>原来以为，一个人的勇敢是，删掉他的手机号码...</b></a>
-                    <p>
-                        <span class="tulanum"><a href="/">手机配件</a></span>
-                        <span class="tutime">2016-02-16</span>
-                    </p></li>
-                <li><a href="/"><img src="/static/images/04.jpg"><b>豪雅手机正式发布! 在法国全手工打造的奢侈品</b></a>
-                    <p>
-                        <span class="tulanum"><a href="/">手机配件</a></span>
-                        <span class="tutime">2016-02-16</span>
-                    </p></li>
-            </ul>
-        </div>
-        <div class="ad"><img src="/static/images/03.jpg"></div>
-        <div class="links">
-            <h3><span><a href="/">申请友情链接</a></span>友情链接</h3>
-            <ul>
-                <li><a href="/">醉牛逼的武魂生涯</a></li>
-                <li><a href="/">观察者网</a></li>
-                <li><a href="/">中国投资</a></li>
-                <li><a href="/">强国论坛</a></li>
-                <li><a href="/">车讯网</a></li>
-                <li><a href="/">360导航</a></li>
-                <li><a href="/">一带一路门户网</a></li>
-            </ul>
         </div>
     </div>
-</article>
+    <!-- end footer -->        <!-- End Document -->
+</div>
 </body>
 </html>

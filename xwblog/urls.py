@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^$', 'index.views.index'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^xwblog/', include('questions.urls')),
+    url(r'^xwblog/', include('articles.urls')),
 ]

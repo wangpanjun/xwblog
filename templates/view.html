@@ -1,0 +1,379 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="baidu-tc-verification" content="7eb356461bde8bb53f0b6e72100e8930" />
+	<meta name="baidu-site-verification" content="QhywE1qZ3A" />
+	<meta charset="utf-8" />
+	<title>
+	CAKEPHP分页功能实现心得-『瑞班克』</title>
+	<meta name="description" content="分页函数在信息内网站或者系统中使用普遍，在此我向大家详细介绍一下cakephp分页函数的详细信息cakephp 分页常用方法" />
+	<meta name="keywords" content=" 分页 cakephp 心得 page" />
+	<meta name="generator" content="瑞班克 1.1.5" />
+
+	<!-- ~~~~~~ icon图标 ~~~~~~ -->
+	<link rel="shortcut icon" href="img/favicon.ico" />
+	<!-- ~~~~~~ CSS ~~~~~~ -->
+	<!-- <link rel="stylesheet" href="css/base.css" />
+	<link rel="stylesheet" href="css/layout.css" />
+	<link rel="stylesheet" href="css/skeleton.css" />
+	<link rel="stylesheet" href="css/fonts.css" />
+	<link rel="stylesheet" href="css/colors.css" /> -->
+
+	<!-- ~~~~~~ CSS 合并文件 ~~~~~~ -->
+	<link rel="stylesheet" href="css/all_css.css" />
+
+	<!-- JavaScript files start -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<!-- JavaScript files end -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+	<div class="wrapper">
+	<!-- 顶部header -->
+<div id="header-wrapper">			
+	<div id="header-bottom">
+		<div class="header-bottom-wrapper">
+			<div class="four columns omega">					
+				<!-- logo / tagline-->
+				<div class="two-thirds column">
+					<div class="logo-slogan">
+						<div class="logo"><a href="http://www.isrbk.com/Index/index"><img src="files/55/96/a7/5596a74d31975-1435936589.png" alt="" /></a></div>
+					</div>
+					<div class="tagline">
+						下一秒，我不知道。
+					</div>
+				</div>
+			</div>
+			<div class="ninehalf columns alpha" id="main-menu-wrapper">
+				<ul id="main-menu">
+					<li><a  href="http://www.isrbk.com/Index/index">首页</a></li>
+					<li>
+						<a  href="http://www.isrbk.com/Index/about">瑞班克</a>
+						<ul>
+							<li>完美</li>								
+						</ul>							
+					</li>
+					<li>
+						<a class="active" href="http://www.isrbk.com/Index/articlelist">文章</a>
+					</li>
+					<li>
+						<a  href="http://www.isrbk.com/Index/moodlist">说说</a>
+						<ul>
+							<li>吐槽</li>								
+						</ul>
+
+					</li>
+					<li><a  href="http://www.isrbk.com/Index/message">留言</a>
+						<ul>
+							<li>沉默</li>								
+						</ul>
+					</li>
+					<li class="newsite"><a class="newsite" href="http://lianmeng.isrbk.com/" target="_blank">联盟</a>
+						<ul>
+							<li>商业</li>								
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>					
+	</div>		
+</div>
+<!-- end 顶部header -->
+	<!-- 设置一个好的消息提示样式 -->
+			<script type="text/javascript" src="heightlight/scripts/shCore.js"></script>
+	<script type="text/javascript" src="heightlight/scripts/shBrushCss.js"></script>
+	<script type="text/javascript" src="heightlight/scripts/shBrushJScript.js"></script>
+	<script type="text/javascript" src="heightlight/scripts/shBrushPhp.js"></script>
+	<script type="text/javascript" src="heightlight/scripts/shBrushSql.js"></script>
+	<script type="text/javascript" src="heightlight/scripts/shBrushXml.js"></script>
+	<link type="text/css" rel="stylesheet" href="heightlight/styles/shCore.css"/>
+	<link type="text/css" rel="stylesheet" href="heightlight/styles/shThemeDefault.css"/>
+	<script type="text/javascript">
+		// SyntaxHighlighter.config.clipboardSwf = '/heightlight/scripts/clipboard.swf';
+		// SyntaxHighlighter.config.bloggerMode = true;
+		// SyntaxHighlighter.config.stringBrs = true;
+		SyntaxHighlighter.all();
+	</script>
+
+<!--内容 content-wrappe -->
+
+
+<div id="content-wrapper">
+	<div class="container">
+
+		<!-- crumbs -->
+		<div class="whole-width crumbs">
+
+		</div>
+	</div>
+
+	<!-- title -->
+	<div class="title">
+		<div class="left-arr"></div>
+		<div class="right-arr"></div>
+		<div class="container">
+			<div class="columns ten alpha title-inner">
+				<h1>最新文章</h1>
+				<p>好记性不如烂笔头。记录点滴，方便你我。  </p>
+			</div>
+			<div class="columns six omega">
+				<div class="filtr-block">
+					<div class="filtr-text-general">位置：</div>
+					<div class="filtr-categories" id="filter-cats">
+						<div class="filtr-categories-container" id="filter-cats-cont">
+							<a href="all" ><span>首页</span></a>
+							<a href="http://www.isrbk.com/Index/articlelist"><span>文章列表</span></a>
+							<a href="http://www.isrbk.com/Index/articlelist/3" class="active"><span>php技术</span></a>
+						</div>
+					</div>
+					<a href="#filter-cats" id="filtr-ico">Hide/Show Filtr</a>
+				</div>
+			</div>
+			<div class="clear"><!-- clear floats --></div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<!-- /title -->
+
+
+
+
+	<div class="container">
+		<div class="separator35"></div>
+		<!-- Left Part -->
+		<div class="columns twelve">
+			<!-- Blog Item -->
+			<div class="post-entry no-bg-post">
+				<h2  style="text-align:center"><a href="#">CAKEPHP分页功能实现心得	</a></h2>
+				<div class="twelve">
+					<div class="post-details" style="text-align:center">
+						<span class="post-autor">栏目：[PHP技术	]</span>
+						<span class="post-tags">发布时间：2015-08-27 22:27:05	</span>
+						<span class="post-views">浏览量：182	 </span>
+					</div>
+					<p>						</p><p>分页函数在信息内网站或者系统中使用普遍，在此我向大家详细介绍一下cakephp分页函数的详细信息<br/></p><p>cakephp 分页常用方法</p><pre class="brush:php;toolbar:false">&nbsp;&nbsp;$this-&gt;paginate&nbsp;=&nbsp;array(
+&nbsp;&nbsp;&nbsp;&nbsp;&#39;conditions&#39;=&gt;array(&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&#39;Article.category_id&#39;=&gt;$category_id,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&#39;order&#39;&nbsp;=&gt;array(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&#39;Article.modified&#39;&nbsp;=&gt;&nbsp;&#39;DESC&#39;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&#39;limit&#39;&nbsp;=&gt;&nbsp;10&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;);
+&nbsp;&nbsp;$data&nbsp;=&nbsp;$this-&gt;paginate();</pre><p style="text-indent: 2em;"><span style="font-family: &#39;arial black&#39;, &#39;avant garde&#39;; font-size: 14px;"></span><br/></p><p>其中 $data = $this-&gt;paginate(参数:模块名);默认为当前调用的首要模块；其中含有很多参数，如：limit，page等等。</p><p>当数据在前台页面时，可以对分页进行调用或者获取其中参数</p><pre class="brush:php;toolbar:false">$page&nbsp;=&nbsp;&nbsp;intval($this-&gt;Paginator-&gt;request-&gt;params[&#39;paging&#39;][&#39;Article&#39;][&#39;page&#39;]);
+$limit&nbsp;=&nbsp;&nbsp;intval($this-&gt;Paginator-&gt;request-&gt;params[&#39;paging&#39;][&#39;Article&#39;][&#39;limit&#39;]);
+在此我打印出变量“$this-&gt;Paginator-&gt;request-&gt;params[&#39;paging&#39;][&#39;Article&#39;]”。
+array(10)&nbsp;{&nbsp;[&quot;page&quot;]=&gt;&nbsp;int(1)&nbsp;[&quot;current&quot;]=&gt;&nbsp;int(8)&nbsp;[&quot;count&quot;]=&gt;&nbsp;int(8)&nbsp;[&quot;prevPage&quot;]
+=&gt;&nbsp;bool(false)&nbsp;[&quot;nextPage&quot;]=&gt;&nbsp;bool(false)&nbsp;[&quot;pageCount&quot;]=&gt;&nbsp;int(1)&nbsp;[&quot;order&quot;]=&gt;&nbsp;array
+(1)&nbsp;{&nbsp;[&quot;Article.modified&quot;]=&gt;&nbsp;string(4)&nbsp;&quot;DESC&quot;&nbsp;}&nbsp;[&quot;limit&quot;]=&gt;&nbsp;int(10)&nbsp;[&quot;options&quot;]=&gt;&nbsp;
+array(0)&nbsp;{&nbsp;}&nbsp;[&quot;paramType&quot;]=&gt;&nbsp;string(5)&nbsp;&quot;named&quot;&nbsp;}</pre><p style="text-indent: 2em;"><span style="font-family: &#39;arial black&#39;, &#39;avant garde&#39;; font-size: 14px;"></span><br/></p><p><br/></p><p>一目了然了吧，然后分页函数就可以根据这些做文章了。</p><p>下面我来介绍一个简单分页的例子吧（虽然简单，但是五张俱全！）。</p><p>个人建议分页函数写在单独的文件里面，方便调用。</p><p>调用方式 $this-&gt;Element(&#39;Cpage&#39;); 文件对应位置：view-&gt;element-&gt;Cpage.ctp</p><p>分页具体内容：</p><pre class="brush:php;toolbar:false">echo&nbsp;$this-&gt;Paginator-&gt;first(__(&#39;首页&#39;),&nbsp;array(&#39;tag&#39;&nbsp;=&gt;&nbsp;&#39;div&#39;));
+&nbsp;&nbsp;&nbsp;&nbsp;if($this-&gt;Paginator-&gt;hasPrev()){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$this-&gt;Paginator-&gt;prev(__(&#39;上一页&#39;),&nbsp;array(&#39;tag&#39;&nbsp;=&gt;&nbsp;&#39;div&#39;));
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$this-&gt;Paginator-&gt;numbers(array(&#39;modulus&#39;&nbsp;=&gt;&nbsp;5,&#39;tag&#39;&nbsp;=&gt;&nbsp;&#39;div&#39;));&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;if($this-&gt;Paginator-&gt;hasNext()){
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$this-&gt;Paginator-&gt;next(__(&#39;下一页&#39;),&nbsp;array(&#39;tag&#39;&nbsp;=&gt;&nbsp;&#39;div&#39;));
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$this-&gt;Paginator-&gt;last(__(&#39;尾页&#39;),&nbsp;array(&#39;tag&#39;&nbsp;=&gt;&nbsp;&#39;div&#39;));
+&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;$this-&gt;Paginator-&gt;counter(
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;__(&#39;共&lt;b&gt;{:pages}&lt;/b&gt;页&nbsp;总共&lt;b&gt;{:count}&lt;/b&gt;条数据&#39;),&nbsp;array(&#39;tag&#39;&nbsp;=&gt;&nbsp;&#39;div&#39;)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+对比输出html源码：
+&lt;div&nbsp;class=&quot;MainStyle&quot;&gt;&lt;div&nbsp;class=&quot;active&quot;&gt;&lt;a&gt;1&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a&nbsp;href=&quot;/admin/ArticleAdmin/index/page:2&quot;&gt;2&lt;/a&gt;&lt;/div&gt;&lt;div&nbsp;class=&quot;next&quot;&gt;&lt;a&nbsp;href=&quot;/admin/ArticleAdmin/index/page:2&quot;&nbsp;rel=&quot;next&quot;&gt;下一页&lt;/a&gt;&lt;/div&gt;&lt;div&gt;&lt;a&nbsp;href=&quot;/admin/ArticleAdmin/index/page:2&quot;&nbsp;rel=&quot;last&quot;&gt;尾页&lt;/a&gt;&lt;/div&gt;共&lt;b&gt;2&lt;/b&gt;页&nbsp;总共&lt;b&gt;18&lt;/b&gt;条数据&nbsp;&lt;/div&gt;</pre><p style="text-indent: 2em;"><span style="font-family: &#39;arial black&#39;, &#39;avant garde&#39;; font-size: 14px;"></span><br/></p><p>就这么简单。分页轻松搞定。</p><p>显而易见的，分页函数调用了分页类，我们首先找到分页函数的位置</p><p>\lib\Cake\View\Helper\PaginatorHelper.php，</p><p>class PaginatorHelper extends AppHelper &nbsp;分页助手继承了appHelper。</p><p>下面我来一一说明下几个分页函数的使用方法：</p><p>first() 首页函数</p><p>public function first($first = &#39;&lt;&lt; first&#39;, $options = array())&nbsp;</p><p>frist函数含有两个参数 first 与 option，第一个参数是视图显示的文字。第二个参数是当前</p><p>首页元素所附属的选项（也可称为属性吧）具体如下，tag是块元素，默认为span 我在此使用</p><p>的为div，separator 是指分页中块与块之间的分隔符，默认为&#39; | &#39;个人觉得不太好，使用空</p><p>格是个不错的选择。ellipsis 是指当分页数据过多时，使用省略符号的定义。默认&#39;...&#39;,个人</p><p>觉得还行。class代表块元素附带的样式名称。可以自定义，默认为空。</p><pre class="brush:php;toolbar:false">$options&nbsp;=&nbsp;(array)$options&nbsp;+&nbsp;array(
+&#39;tag&#39;&nbsp;=&gt;&nbsp;&#39;span&#39;,
+&#39;after&#39;&nbsp;=&gt;&nbsp;null,
+&#39;model&#39;&nbsp;=&gt;&nbsp;$this-&gt;defaultModel(),
+&#39;separator&#39;&nbsp;=&gt;&nbsp;&#39;&nbsp;|&nbsp;&#39;,
+&#39;ellipsis&#39;&nbsp;=&gt;&nbsp;&#39;&nbsp;...&nbsp;&#39;,
+&#39;class&#39;&nbsp;=&gt;&nbsp;null
+);</pre><p style="text-indent: 2em;"><span style="font-family: &#39;arial black&#39;, &#39;avant garde&#39;; font-size: 14px;"></span><br/></p><p>是否存在上一页、下一页函数为 hasPrev hasNext，函数返回值为 bool型，false 或者 true。&nbsp;</p><p>prev next last函数与first相近，这里不再详细说明了。</p><p>下面到了number函数，主要实现分页中间页码的效果。</p><p>public function numbers($options = array())&nbsp;</p><p>numbers只有一个参数，具体选择为&#39;before&#39;,&#39;after&#39;,&#39;first&#39;,&#39;last&#39;。&nbsp;</p><p style="text-indent: 2em;"><span style="font-size: 14px; font-family: &#39;arial black&#39;, &#39;avant garde&#39;;">$options = array(&#39;before&#39; =&gt; &#39; | &#39;, &#39;after&#39; =&gt; &#39; | &#39;, &#39;first&#39; =&gt; &#39;first&#39;, &#39;last&#39; =&gt; &#39;last&#39;}</span></p><p>另外，numbers函数还含有默认的defaults变量，其中mudulus表示总共显示多少个页面，</p><p>currentClass 与currentTag表示当前活动页的样式和块标签。$options += $defaults;实现默认defaults变量加入到options中。</p><pre class="brush:php;toolbar:false">$defaults&nbsp;=&nbsp;array(
+&#39;tag&#39;&nbsp;=&gt;&nbsp;&#39;span&#39;,&nbsp;&#39;before&#39;&nbsp;=&gt;&nbsp;null,&nbsp;&#39;after&#39;&nbsp;=&gt;&nbsp;null,&nbsp;&#39;model&#39;=&gt;&nbsp;$this-&gt;defaultModel(),&nbsp;&#39;class&#39;&nbsp;=&gt;&nbsp;null,
+&#39;modulus&#39;&nbsp;=&gt;&nbsp;&#39;8&#39;,&nbsp;&#39;separator&#39;&nbsp;=&gt;&nbsp;&#39;&#39;,&nbsp;&#39;first&#39;&nbsp;=&gt;&nbsp;null,&nbsp;&#39;last&#39;&nbsp;=&gt;&nbsp;null,&nbsp;&#39;ellipsis&#39;&nbsp;=&gt;&nbsp;&#39;...&#39;,
+&#39;currentClass&#39;&nbsp;=&gt;&nbsp;&#39;active&#39;,&nbsp;&#39;currentTag&#39;&nbsp;=&gt;&nbsp;&#39;a&#39;);</pre><p style="text-indent: 2em;"><span style="font-family: &#39;arial black&#39;, &#39;avant garde&#39;; font-size: 14px;"></span><br/></p><p>只剩下最后一个counter函数了，该函数用户统计概况当前分页情况，我们可以拼凑出自己想要的分页效果。里面包含多个占位符</p><p>&#39;{:page}&#39;, &#39;{:pages}&#39;, &#39;{:current}&#39;, &#39;{:count}&#39;, &#39;{:start}&#39;, &#39;{:end}&#39;, &#39;{:model}&#39;其中可以包含这些变量组合使用非常的实用。</p><p><br/></p><p>						</p>						
+
+				</div>
+			</div>
+			<!-- /Blog Item -->
+
+
+
+			<!-- tags -->
+			<div class="block-inner first-block-inner">
+				<div class="block-inner-text">标签:</div>
+				<div class="block-inner-link">
+					<a href="http://www.isrbk.com/Index/articlesearch/tag.分页" class="tag-link">分页</a><a href="http://www.isrbk.com/Index/articlesearch/tag.cakephp" class="tag-link">cakephp</a><a href="http://www.isrbk.com/Index/articlesearch/tag.心得" class="tag-link">心得</a><a href="http://www.isrbk.com/Index/articlesearch/tag.page" class="tag-link">page</a>				</div>
+			</div>
+			<!-- Socials -->
+			<div class="block-inner next-block-inner">
+				<div class="block-inner-text social-inner-text">博客分享:</div>
+				<div class="block-inner-link">
+					<div class="block_social_3">
+						<!-- JiaThis Button BEGIN -->
+						<div class="jiathis_style">
+							<a class="jiathis_button_qzone"></a>
+							<a class="jiathis_button_tsina"></a>
+							<a class="jiathis_button_tqq"></a>
+							<a class="jiathis_button_weixin"></a>
+							<a class="jiathis_button_renren"></a>
+							<a href="http://www.jiathis.com/share?uid=2042760" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+							<a class="jiathis_counter_style"></a>
+						</div>
+						<script type="text/javascript">
+							var jiathis_config = {data_track_clickback:'true'};
+						</script>
+						<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2042760" charset="utf-8"></script>
+						<!-- JiaThis Button END -->
+					</div>
+				</div>
+			</div>
+			<div class="separator17"></div>
+			<div class="project-navi">
+				<a href="29" class="previous-project">上一篇：侧边漂浮广告效果制作</a> | <a href="http://www.isrbk.com/Index/articlelist" class="list-project">List</a> | <a href="45" class="next-project">下一篇：Cakephp实现上一篇下一篇</a>
+			</div>
+			<div class="separator17"></div>
+			<div class="dbl-dott-wrapper"></div>
+			<!-- Comments -->
+			<h2 class="fs15 col-3e3b3b wei700">博客评论： <span class="colored-grey"></span></h2>
+			<div class="separator8"></div>
+			<!-- UY BEGIN -->
+			<div id="uyan_frame"></div>
+			<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2042760"></script>
+			<!-- UY END -->
+		</div>
+		<!-- Left Part -->
+
+
+		<!-- Right Part -->
+		<div class="columns four blog-aside">
+			
+			
+			<div class="" id="dhmenu">
+				<form action="/Index/articlesearch" method="post" class="search_block" />
+				<input name="keyword" type="text" value="Search site " onFocus="if(this.value=='Search site ')this.value='';" onBlur="if(this.value=='')this.value='Search site ';" />
+				<input type="submit" value="" />
+			</form>
+			<h3 class="sidebar-titles">栏目导航</h3>
+			<ul class="list_type7 categories-list">
+				<li><a href="http://www.isrbk.com/Index/articlelist/3">PHP技术</a></li><li><a href="http://www.isrbk.com/Index/articlelist/7">CSS样式心得</a></li><li><a href="http://www.isrbk.com/Index/articlelist/8">JS技术</a></li><li><a href="http://www.isrbk.com/Index/articlelist/9">成功案例</a></li><li><a href="http://www.isrbk.com/Index/articlelist/10">PHP环境搭建</a></li><li><a href="http://www.isrbk.com/Index/articlelist/11">IM瑞班克</a></li><li><a href="http://www.isrbk.com/Index/articlelist/12">ASP.NET心得</a></li>			</ul>
+		</div>
+		<div class="dbl-dott-wrapper"></div>
+		<div class="separator11"></div>
+
+		<h3 class="sidebar-titles">热门文章</h3>
+		<ul class="recent-posts-side">
+			<li>
+				<a href="" class="fancybox left-image"><img src="img/imgerror.jpg" alt="" /> <span class="over-bg-portfolio"></span></a>
+				<a  class="right-article-title" href="http://www.isrbk.com/Index/articleview/52">医疗机构挂号系统</a>
+				<em>2016-01-06 15:47:49</em>
+			</li><li>
+				<a href="" class="fancybox left-image"><img src="img/imgerror.jpg" alt="" /> <span class="over-bg-portfolio"></span></a>
+				<a  class="right-article-title" href="http://www.isrbk.com/Index/articleview/51">手机号码抽奖源码</a>
+				<em>2016-01-06 14:24:53</em>
+			</li><li>
+				<a href="" class="fancybox left-image"><img src="img/imgerror.jpg" alt="" /> <span class="over-bg-portfolio"></span></a>
+				<a  class="right-article-title" href="http://www.isrbk.com/Index/articleview/29">侧边漂浮广告效果制作</a>
+				<em>2015-08-13 00:48:58</em>
+			</li><li>
+				<a href="" class="fancybox left-image"><img src="img/imgerror.jpg" alt="" /> <span class="over-bg-portfolio"></span></a>
+				<a  class="right-article-title" href="http://www.isrbk.com/Index/articleview/31">CAKEPHP分页功能实现心得</a>
+				<em>2015-08-27 22:27:05</em>
+			</li><li>
+				<a href="" class="fancybox left-image"><img src="files/56/50/18/5650180c80599-1448089612_60-45.png" alt="" /> <span class="over-bg-portfolio"></span></a>
+				<a  class="right-article-title" href="http://www.isrbk.com/Index/articleview/42">cakephp查询时recursive属性作用</a>
+				<em>2015-11-09 16:20:30</em>
+			</li>	</ul>
+	<div class="dbl-dott-wrapper"></div>
+	<div class="separator12"></div>
+
+
+	<h3 class="sidebar-titles">热门标签</h3>
+	<div class="tags">
+		<a href="http://www.isrbk.com/Index/articlesearch/tag.2008" class="tag-link">2008</a><a href="http://www.isrbk.com/Index/articlesearch/tag.2502" class="tag-link">2502</a><a href="http://www.isrbk.com/Index/articlesearch/tag.2503" class="tag-link">2503</a><a href="http://www.isrbk.com/Index/articlesearch/tag.ajax" class="tag-link">ajax</a><a href="http://www.isrbk.com/Index/articlesearch/tag.apache" class="tag-link">apache</a><a href="http://www.isrbk.com/Index/articlesearch/tag.app" class="tag-link">app</a><a href="http://www.isrbk.com/Index/articlesearch/tag.ASP" class="tag-link">ASP</a><a href="http://www.isrbk.com/Index/articlesearch/tag.asp.net" class="tag-link">asp.net</a><a href="http://www.isrbk.com/Index/articlesearch/tag.a标签" class="tag-link">a标签</a><a href="http://www.isrbk.com/Index/articlesearch/tag.background" class="tag-link">background</a>	</div>
+
+	<div class="dbl-dott-wrapper"></div>
+	<div class="separator12"></div>
+
+
+
+	<h3 class="sidebar-titles">友情链接</h3>
+	<div class="flickr-feed">
+	<a href="http://www.yybbl.com/" target="_blank"><img src="files/56/3d/f0/563df04748943-1446899783_52-52.png" alt="" /></a><a href="http://www.biesb.com" target="_blank"><img src="files/55/bb/52/55bb529344332-1438339731_52-52.png" alt="" /></a><a href="http://www.cakephp.org/" target="_blank"><img src="files/55/97/f7/5597f77757bcf-1436022647_52-52.png" alt="" /></a><a href="http://dreamzk.cn/" target="_blank"><img src="files/55/96/90/559690aca7d8c-1435930796_52-52.png" alt="" /></a>	</div>
+
+</div> 
+<!-- /Right Part -->
+
+
+<div class="clear"></div>
+</div>
+</div>
+<!-- end content -->
+<script type="text/javascript">
+	$(document).ready(function(){
+		var l = true;
+		var top = $("#dhmenu").offset().top;
+		function doFix()
+		{              
+			var scrolla=$(window).scrollTop();
+			var dis=parseInt(top)-parseInt( scrolla);
+			console.log(dis);
+			if(l && dis<=90)
+			{                
+				$("#dhmenu").removeClass().addClass("fixed_top_right");
+				l=false;
+			}
+			if(!l && dis>90)
+			{
+				$("#dhmenu").removeClass("fixed_top_right");
+				l=true;
+			}
+		}
+		$(window).scroll(doFix);
+	});
+</script>
+		<!-- FOOTER -->
+<div id="footer-wrapper">
+	<!-- top part [tweeter] -->
+	<div id="footer-top">
+		<div class="footer-tweet-left"></div>
+		<div class="footer-tweet-right"></div>
+
+		<div class="container">
+
+		</div>
+	</div>
+
+	<!-- bottom part  -->
+	<div id="footer-bottom">
+		<div id="footer-bottom-arr"></div>
+		<div class="container">
+			<!-- copyrights -->
+			<div class="column copyrights">
+				<p>&copy; Copyright &copy; 2013.Company name All rights reserved.</p>
+			</div>
+
+			<div class="cnzz column" style="display:none;">
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254447027'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/z_stat.php%3Fid%3D1254447027%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+			</div>
+			<!-- menu -->
+			<div class="column">
+				<ul id="footer-menu">
+					<li><a href="http://www.isrbk.com/Index/index">首页</a></li>
+					<li><a href="http://www.isrbk.com/Index/about">瑞班克</a></li>
+					<li><a href="http://www.isrbk.com/Index/articlelist">文章</a></li>
+					<li><a href="http://www.isrbk.com/Index/moodlist">说说</a></li>
+					<li><a href="http://www.isrbk.com/Index/message">留言</a></li>
+					<li><!-- to top -->
+						<a href="#top" class="backtop" title="Page Up"><!-- Upper --></a>
+					</li>
+				</ul>
+
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- end footer -->		<!-- End Document -->
+	</div>
+</body>
+</html>

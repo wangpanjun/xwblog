@@ -7,5 +7,5 @@ from django.shortcuts import render
 
 def index(request):
     context = {}
-    template = "content.html"
+    template = "index.html"
     return render(request, template, context)
