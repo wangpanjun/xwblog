@@ -17,8 +17,8 @@ class ArticlesView(View):
             return HttpResponseBadRequest(json.dumps(data))
         info = DoArticle.get_by_page(data)
         # template = "article_list.html"
-        content = {"data":info}
-        template = "article_list.html"
+        content = {"data": info}
+        template = "article-list.html"
         return render(request, template, content)
 
     def post(self, request):
