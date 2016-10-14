@@ -64,13 +64,10 @@ class DoArticle(object):
             return None
 
     @staticmethod
-    def get_by_page(param):
-        page_num = param.get('page_num', 1)
-        page_size = param.get('page_size', 10)
+    def get_by_page(page_num, page_size, param):
         title = param.get('title', '')
         articles = ArticleModel.objects.filter(title__contains=title).order_by('-created_time')[
                    (page_num - 1) * page_size:page_size]
-
         return [article.info() for article in articles]
 
     @staticmethod

@@ -15,7 +15,6 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
 
 INSTALLED_APPS = (
@@ -37,20 +35,38 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'questions',
-    'articles',
+    'rest_framework',
+    'corsheaders',
+    # 'questions',
+    # 'articles',
+    'labels',
+    'rest_framework.authtoken',
 )
-
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # 'corsheaders.middleware.CorsMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
+
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
 )
+
+REST_FRAMEWORK = dict(DEFAULT_PERMISSION_CLASSES=[
+    #    'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    'rest_framework.permissions.DjangoModelPermissions'
+], DEFAULT_AUTHENTICATION_CLASSES=[
+    # 'rest_framework.authentication.TokenAuthentication',  #enable Token authentication
+    'users.authentication.ExpiringTokenAuthentication',
+    'rest_framework.authentication.SessionAuthentication',  # enable session authentication
+])
 
 ROOT_URLCONF = 'xwblog.urls'
 
@@ -70,9 +86,15 @@ TEMPLATES = [
         },
     },
 ]
+# CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = True
 
+# CORS_ORIGIN_WHITELIST = (
+#     'http://192.168.10.87:33333',
+#     'http://localhost:63342'
+#     'http://192.168.10.87:63342'
+# )
 WSGI_APPLICATION = 'xwblog.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -88,7 +110,6 @@ DATABASES = {
     }
 }
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
@@ -102,7 +123,6 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
@@ -112,6 +132,6 @@ STATIC_URL = '/static/'
 # )
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static/'),
+    os.path.join(BASE_DIR, 'templates/static/'),
     os.path.join(BASE_DIR, 'uploads/'),
 )

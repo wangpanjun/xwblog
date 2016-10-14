@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="plugins/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+    <ul ng-repeat="x in names">
+        <li>{{ x.label }}</li>
+        <li>{{ x.from_user }}</li>
+        <li>{{ x.to_user }}</li>
+    </ul>
+</div>
+
+
+</body>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl', function ($scope, $http) {
+        $http.get('http://192.168.10.87:33333/labels/', {
+            headers: {"Authorization": "Token 0870e2375742ff6ad34f57f49c05d6308448c97d"}
+        }).success(function (response) {
+                    $scope.names = response;
+                }
+        );
+    });
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html ng-app="myModule">
+<head>
+    <meta charset="utf-8">
+    <title>学生信息管理</title>
+
+    <link rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" type="text/css">
+</head>
+<body>
+<div ui-view></div>
+<div ng-controller="FormController">
+    <h3>学生信息列表</h3>
+    <br>
+    <div>
+        搜索：<input type="text" ng-model="titleFilter" placeholder="输入关键字"> //加上
+        <tr ng-repeat="student in students|filter:titleFilter">实现了表格内容的检索。
+    </div>
+    <br>
+    <table ng-table="tableParams">
+        <tr ng-repeat="student in students|filter:titleFilter"> //遍历每一个对象
+            <td title="'Name'">
+                <span ng-if="!student.$edit">{{ student.Name }}</span>
+                <div ng-if="student.$edit"><input type="text" ng-model="student.Name"></div>
+            </td>
+            <td title="'Id'">
+                <span ng-if="!student.$edit">{{ student.Id }}</span>
+                <div ng-if="student.$edit"><input type="text" ng-model="student.Id"></div>
+            </td>
+            <td title="'Grade'">
+                <span ng-if="!student.$edit">{{ student.Grade }}</span>
+                <div ng-if="student.$edit"><input type="text" ng-model="student.Grade"></div>
+            </td>
+            <td title="'Actions'" width="200">
+                <a ng-if="!student.$edit" ng-click="student.$edit=true">Edit</a>
+                <a ng-if="student.$edit" ng-click="student.$edit=false">Save</a>
+                <a ng-click="deleteStudent(obj)" ng-if="student.$edit">Delete</a>
+                <!-- <a ng-click="addStudent()" ng-if="student.$edit" >Add</a> -->
+            </td>
+        </tr>
+    </table>
+    <div>
+        <input type="text" ng-model="newName" placeholder="input Name" required/>
+        <input type="text" ng-model="newId" placeholder="input Id" required/>
+        <input type="text" ng-model="newGrade" placeholder="input Grade" required/>
+        <input type="button" ng-click="addStudent()" value="Add"/>
+    </div>
+</div>
+</body>
+<script>
+    var myModule = angular.module('myModule', ['ngTable']).controller('FormController', function ($scope, ngTableParams, $sce) {
+        $scope.students = [
+            {Name: '小李', Id: '201401201', Grade: '计算机技术'},
+            {Name: '李磊', Id: '201401202', Grade: '计算机技术'},
+            {Name: '夏津', Id: '201401203', Grade: '计算机技术'},
+            {Name: '杭州', Id: '201401204', Grade: '计算机技术'}
+        ];
+        $scope.addStudent = function () {       //添加学生函数
+            $scope.students.push({Name: $scope.newName, Id: $scope.newId, Grade: $scope.newGrade});
+            $scope.newName = '';
+            $scope.newId = '';
+            $scope.newGrade = '';
+        };
+        $scope.deleteStudent = function (student) {   //删除一行的内容
+            $scope.students.splice($scope.students.indexOf(student), 1);
+        };
+    });
+</script>
+</html>

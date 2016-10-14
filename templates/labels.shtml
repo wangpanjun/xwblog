@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<head>
+    <style type="text/css">
+
+        {#                jjj#}
+        {#            font-family: arial, sans-serif;#}
+        {#            font-size: 100%;#}
+        {#            margin: 3em;#}
+        {#            background: #666;#}
+        {#            color: #fff;#}
+        {#        }#}
+
+        {#        h2, p {#}
+        {#            font-size: 100%;#}
+        {#            font-weight: normal;#}
+        {#        }#}
+        {##}
+        .x ul, li {
+            list-style: none;
+        }
+
+        .x ul {
+            overflow: hidden;
+            padding: 3em;
+        . x
+        }
+
+        .x ul li a {
+            text-decoration: none;
+            color: #000;
+            background: #ffc;
+            display: block;
+            height: 10em;
+            width: 10em;
+            padding: 1em;
+        }
+
+        .x ul li {
+            margin: 1em;
+            float: left;
+        }
+
+        .x ul li h2 {
+            font-size: 140%;
+            font-weight: bold;
+            padding-bottom: 10px;
+        }
+
+        .x ul li p {
+            font-family: “Reenie Beanie”, arial, sans-serif, 微软雅黑;
+            font-size: 110%;
+        }
+
+        .x ul li a {
+            text-decoration: none;
+            color: #000;
+            background: #ffc;
+            display: block;
+            height: 10em;
+            width: 10em;
+            padding: 1em; /* Firefox */
+            -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1); /* Safari+Chrome */
+            -webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, .7); /* Opera */
+            box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
+        }
+
+        .x ul li a {
+            -webkit-transform: rotate(-6deg);
+            -o-transform: rotate(-6deg);
+            -moz-transform: rotate(-6deg);
+        }
+
+        .x ul li:nth-child(even) a {
+            -o-transform: rotate(4deg);
+            -webkit-transform: rotate(4deg);
+            -moz-transform: rotate(4deg);
+            position: relative;
+            top: 5px;
+        }
+
+        .x ul li:nth-child(3n) a {
+            -o-transform: rotate(-3deg);
+            -webkit-transform: rotate(-3deg);
+            -moz-transform: rotate(-3deg);
+            position: relative;
+            top: -5px;
+        }
+
+        .x ul li:nth-child(5n) a {
+            -o-transform: rotate(5deg);
+            -webkit-transform: rotate(5deg);
+            -moz-transform: rotate(5deg);
+            position: relative;
+            top: -10px;
+        }
+
+        .x ul li a:hover, ul li a:focus {
+            -moz-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+            -webkit-box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+            box-shadow: 10px 10px 7px rgba(0, 0, 0, .7);
+            -webkit-transform: scale(1.25);
+            -moz-transform: scale(1.25);
+            -o-transform: scale(1.25);
+            position: relative;
+            z-index: 5;
+        }
+
+        .x ul li:nth-child(even) a {
+            -o-transform: rotate(4deg);
+            -webkit-transform: rotate(4deg);
+            -moz-transform: rotate(4deg);
+            position: relative;
+            top: 5px;
+            background: #cfc;
+        }
+
+        {#        ul li:nth-child(3n) a {#}
+        {#            -o-transform: rotate(-3deg);#}
+        {#            -webkit-transform: rotate(-3deg);#}
+        {#            -moz-transform: rotate(-3deg);#}
+        {#            position: relative;#}
+        {#            top: -5px;#}
+        {#            background: #ccf;#}
+        {#        }#}
+    </style>
+    <meta charset="utf-8">
+    <title>iDea | Portfolio</title>
+    <meta name="description" content="iDea a Bootstrap-based, Responsive HTML5 Template">
+    <meta name="author" content="htmlcoder.me">
+
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- Web Fonts -->
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Font Awesome CSS -->
+    <link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Fontello CSS -->
+    <link href="fonts/fontello/css/fontello.css" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="css/animations.css" rel="stylesheet">
+    <link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+
+    <!-- iDea core CSS file -->
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- Color Scheme (In order to change the color scheme, replace the red.css with the color scheme that you prefer)-->
+    <link href="css/skins/red.css" rel="stylesheet">
+
+    <!-- Custom css -->
+    <link href="css/custom.css" rel="stylesheet">
+</head>
+
+<!-- body classes:
+        "boxed": boxed layout mode e.g. <body class="boxed">
+        "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1">
+-->
+<body>
+
+<!-- scrollToTop -->
+<!-- ================ -->
+<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+
+<!-- page wrapper start -->
+<!-- ================ -->
+<div class="page-wrapper">
+
+
+    <!--#include file="header.xhtml"-->
+
+    <!-- header-top start -->
+    <!-- ================ -->
+    <!-- header-top end -->
+
+
+    <!-- header start (remove fixed class from header in order to disable fixed navigation mode) -->
+    <!-- ================ -->
+    <!-- header end -->
+
+    <!-- page-intro start-->
+    <!-- ================ -->
+    <div class="page-intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home pr-10"></i><a href="index.xhtml">Home</a></li>
+                        <li class="active">Portfolio 3 Columns11</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page-intro end -->
+
+    <!-- main-container start -->
+    <!-- ================ -->
+    <section class="main-container">
+
+        <div class="container">
+            <div class="row">
+
+                <!-- main start -->
+                <!-- ================ -->
+                <div class="main col-md-12">
+
+                    <!-- page-title start -->
+                    <!-- ================ -->
+                    <h1 class="page-title">Portfolio 3 Columns</h1>
+                    <div class="separator-2"></div>
+                    <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas nulla suscipit
+                        <br class="hidden-sm hidden-xs"> unde rerum mollitia dolorum.</p>
+                    <!-- page-title end -->
+
+                    <!-- isotope filters start -->
+                    <div class="filters">
+                        <ul class="nav nav-pills">
+                            <li class="active"><a href="#" data-filter="*">All</a></li>
+                            <li><a href="#" data-filter=".web-design">Web design</a></li>
+                            <li><a href="#" data-filter=".app-development">App development</a></li>
+                            <li><a href="#" data-filter=".site-building">Site building</a></li>
+                        </ul>
+                    </div>
+                    <!-- isotope filters end -->
+
+                </div>
+                <!-- main end -->
+            </div>
+        </div>
+
+        <!-- section start -->
+        <!-- ================ -->
+        <div class="gray-bg section">
+            <div class="container">
+                <!-- portfolio items start -->
+                <div class="isotope-container row grid-space-10">
+                    <div class="x col-sm-12 col-md-12 isotope-item web-design">
+                        <ul>
+                            <li><a href='##'><h2>某：</h2>
+                                <p>低于25000块的面试</p></a></li>
+                            <li><a href='##'><h2>某：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                            <li><a href='##'><h2>某武林高手：</h2>
+                                <p>低于25000块的面试再也不去了，它grandma的</p></a></li>
+                        </ul>
+                    </div>
+
+                    <!--<div class="col-sm-6 col-md-4 isotope-item web-design">
+                        <div class="box-style-1 white-bg">
+                            <div class="overlay-container">
+                                <img src="images/portfolio-8.jpg" alt="">
+                                <a href="portfolio-item.html" class="overlay small">
+                                    <i class="fa fa-plus"></i>
+                                    <span>Web Design</span>
+                                </a>
+                            </div>
+                            <h3><a href="portfolio-item.html">Project Title</a></h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                            <a href="portfolio-item.html" class="btn btn-default">Read More</a>
+                        </div>
+                    </div> -->
+                </div>
+                <!-- portfolio items end -->
+            </div>
+        </div>
+        <!-- section end -->
+    </section>
+    <!-- main-container end -->
+
+    <!-- section start -->
+    <!-- ================ -->
+    <div class="section text-muted footer-top clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="owl-carousel clients">
+                        <div class="client">
+                            <a href="#"><img src="images/client-1.png" alt=""></a>
+                        </div>
+                        <div class="client">
+                            <a href="#"><img src="images/client-2.png" alt=""></a>
+                        </div>
+                        <div class="client">
+                            <a href="#"><img src="images/client-3.png" alt=""></a>
+                        </div>
+                        <div class="client">
+                            <a href="#"><img src="images/client-4.png" alt=""></a>
+                        </div>
+                        <div class="client">
+                            <a href="#"><img src="images/client-5.png" alt=""></a>
+                        </div>
+                        <div class="client">
+                            <a href="#"><img src="images/client-6.png" alt=""></a>
+                        </div>
+                        <div class="client">
+                            <a href="#"><img src="images/client-7.png" alt=""></a>
+                        </div>
+                        <div class="client">
+                            <a href="#"><img src="images/client-8.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <blockquote class="inline">
+                        <p class="margin-clear">Design is not just what it looks like and feels like. Design is how it
+                            works.</p>
+                        <footer><cite title="Source Title">Steve Jobs </cite></footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- section end -->
+
+    <!-- footer start (Add "light" class to #footer in order to enable light footer) -->
+    <!-- ================ -->
+    <!--#include file="footer.html"-->
+    <!-- footer end -->
+
+</div>
+<!-- page-wrapper end -->
+
+<!-- JavaScript files placed at the end of the document so the pages load faster
+================================================== -->
+<!-- Jquery and Bootstap core js files -->
+<script type="text/javascript" src="plugins/jquery.min.js"></script>
+<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Modernizr javascript -->
+<script type="text/javascript" src="plugins/modernizr.js"></script>
+
+<!-- Isotope javascript -->
+<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+
+<!-- Owl carousel javascript -->
+<script type="text/javascript" src="plugins/owl-carousel/owl.carousel.js"></script>
+
+<!-- Magnific Popup javascript -->
+<script type="text/javascript" src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+<!-- Appear javascript -->
+<script type="text/javascript" src="plugins/jquery.appear.js"></script>
+
+<!-- Count To javascript -->
+<script type="text/javascript" src="plugins/jquery.countTo.js"></script>
+
+<!-- Parallax javascript -->
+<script src="plugins/jquery.parallax-1.1.3.js"></script>
+
+<!-- Contact form -->
+<script src="plugins/jquery.validate.js"></script>
+
+<!-- Initialization of Plugins -->
+<script type="text/javascript" src="js/template.js"></script>
+
+<!-- Custom Scripts -->
+<script type="text/javascript" src="js/custom.js"></script>
+
+</body>
+</html>

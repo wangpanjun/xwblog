@@ -1,6 +1,8 @@
 # coding=utf-8
 
 
+import json
+
 def validate_form(form_class, data, files=None):
     form = form_class(data, files)
     if form.is_valid():
@@ -12,3 +14,7 @@ def validate_form(form_class, data, files=None):
         elif key in form.errors:
             errors.append({"field": key, "code": "invalid"})
     return False, errors
+
+
+def result_json(state=200, message='OK', result=None):
+    return json.dumps(dict(status=state, message=message, result=result))
